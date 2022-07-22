@@ -1,0 +1,84 @@
+Rufus x86 v3.18.1877 (Portable)
+Windows version: Windows 11 Home Single Language, 64-bit (Build 22000.739)
+Syslinux versions: 4.07/2013-07-25, 6.04/pre1
+Grub versions: 0.4.6a, 2.06
+System locale ID: 0x0409 (en-US)
+Will use default UI locale 0x0409
+SetLGP: Successfully set NoDriveTypeAutorun policy to 0x0000009E
+Localization set to 'en-US'
+Notice: The ISO download feature has been deactivated because 'Check for updates' is disabled in your settings.
+Found USB 3.0 device 'SMI USB DISK USB Device' (090C:1000)
+1 device found
+Disk type: Removable, Disk size: 32 GB, Sector size: 512 bytes
+Cylinders: 3824, Tracks per cylinder: 255, Sectors per track: 63
+Partition type: MBR, NB Partitions: 1
+Disk ID: 0x005BD304
+Drive has a Grub 2.0 Master Boot Record
+Partition 1:
+  Type: FAT32 LBA (0x0c)
+  Detected File System: FAT32
+  Size: 29.3 GB (31456231424 bytes)
+  Start Sector: 2048, Boot: Yes
+1 device found
+Disk type: Removable, Disk size: 32 GB, Sector size: 512 bytes
+Cylinders: 3824, Tracks per cylinder: 255, Sectors per track: 63
+Partition type: MBR, NB Partitions: 1
+Disk ID: 0x005BD304
+Drive has a Grub 2.0 Master Boot Record
+Partition 1:
+  Type: FAT32 LBA (0x0c)
+  Detected File System: FAT32
+  Size: 29.3 GB (31456231424 bytes)
+  Start Sector: 2048, Boot: Yes
+Scanning image...
+ISO analysis:
+  Image is an ISO9660 image
+  Detected Grub version: 2.06
+Disk image analysis:
+  Image has an unknown Master Boot Record
+  Image is a bootable disk image
+ISO label: 'Ubuntu 22.04 LTS amd64'
+  Size: 3.4 GB (Projected)
+  Has a >64 chars filename
+  Uses: GRUB2
+  Uses: EFI
+  Note: This ISO uses symbolic links, which will not be replicated due to file system
+  limitations. Because of this, some features from this image may not work...
+Using image: ubuntu-22.04-desktop-amd64.iso (3.4 GB)
+
+Format operation started
+Requesting disk access...
+Will use 'E:' as volume mountpoint
+Opened \\.\PhysicalDrive1 for exclusive write access
+Requesting logical volume handle...
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Found USB 3.0 device 'SMI USB DISK USB Device' (090C:1000)
+1 device found
+No volume information for drive 0x81
+Disk type: Removable, Disk size: 32 GB, Sector size: 512 bytes
+Cylinders: 3824, Tracks per cylinder: 255, Sectors per track: 63
+Partition type: GPT, NB Partitions: 3
+Disk GUID: {A09DB2B8-B5F6-43AE-AFB3-91E0A90189A1}
+Max parts: 248, Start Offset: 32768, Usable = 31457214976 bytes
+Partition 1:
+  Type: Microsoft Basic Data Partition
+  Name: 'ISO9660'
+  Detected File System: (Unrecognized)
+  ID: {A09DB2B8-B5F6-43AE-AFB2-91E0A90189A1}
+  Size: 3.4 GB (3650234368 bytes)
+  Start Sector: 64, Attributes: 0x1000000000000001
+Partition 2:
+  Type: EFI System Partition
+  Name: 'Appended2'
+  Detected File System: FAT12
+  ID: {A09DB2B8-B5F6-43AE-AFB1-91E0A90189A1}
+  Size: 4.1 MB (4349952 bytes)
+  Start Sector: 7129428, Attributes: 0x0000000000000000
+Partition 3:
+  Type: Microsoft Basic Data Partition
+  Name: 'Gap1'
+  Detected File System: (Unrecognized)
+  ID: {A09DB2B8-B5F6-43AE-AFB0-91E0A90189A1}
+  Size: 300 KB (307200 bytes)
+  Start Sector: 7137924, Attributes: 0x1000000000000001
