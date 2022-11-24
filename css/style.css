@@ -477,8 +477,9 @@ p.note{
 }
 .listview_1_of_2:first-child { margin-left: 0; } 
 .images_1_of_2 {
-	width: 46.2%;
-	padding:1.5%; 
+	 width: 49.2%;
+    height: 189px;
+    padding: -0.5%;
 }
 .listimg_2_of_1 {
 	width: 48.2%;
@@ -616,7 +617,7 @@ p.note{
 	margin-left: 0; 
 } 
 .images_1_of_4 {
-	width: 20.8%;
+	width: 20.4%;
 	padding:1.5%;
 	text-align:center;
 	position:relative; 
@@ -1368,7 +1369,7 @@ p.note{
     clear:both;
 }
 .group {
-    zoom:1;
+    zoom:0.8;
 }
 .col{
 	display: block;
@@ -1403,7 +1404,7 @@ p.note{
   border-bottom: 1px solid #ddd;
   font-size: 30px;
   margin-bottom: 20px;
-  width: 141px;
+  width: 300px;
 }
 .tblone {
   border: 1px solid #fff;
@@ -2486,4 +2487,8 @@ p.terms {
 input.grey{
 	font-size: 19px;
 	background:#fff;
+}
+.button_details input[type=submit]{
+	float: left;
+	margin: 5px;
 }

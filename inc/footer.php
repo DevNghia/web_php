@@ -77,7 +77,7 @@
 <script defer src="js/jquery.flexslider.js"></script>
 <script type="text/javascript">
     $(function() {
-        SyntaxHighlighter.all();
+        // SyntaxHighlighter.all();
     });
     $(window).load(function() {
         $('.flexslider').flexslider({

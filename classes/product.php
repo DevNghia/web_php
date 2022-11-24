@@ -22,6 +22,18 @@ class product
         $this->db = new Database();
         $this->fm = new Format();
     }
+    public function search_product()
+    {
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $query = "SELECT * FROM tbl_product WHERE productName LIKE '%$search%' ";
+            $result = $this->db->select($query);
+            return $result;
+        } else {
+            $alert = "<span class='error'> There was no search results! </span>";
+            return $alert;
+        }
+    }
     public function insert_product($data, $files)
     {
         $productName = mysqli_real_escape_string($this->db->link, $data['productName']);
@@ -199,6 +211,226 @@ class product
     {
         $query = "SELECT * FROM tbl_product WHERE brandId ='5' order by productId desc LIMIT 1 ";
         $result = $this->db->select($query);
+        return $result;
+    }
+    public function getApple()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='5' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getTopApple()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='5' order by productId  LIMIT 4";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getSamsung()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='2' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getTopSamsung()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='2' order by productId desc LIMIT 4";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getXiaomi()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='3' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getTopXiaomi()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='3' order by productId desc LIMIT 4 ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getOppo()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='4' order by productId desc LIMIT 4";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getTopOppo()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='4' order by productId desc LIMIT 4";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getVivo()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='12' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getLenovo()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='6' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getAcer()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='7' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getDell()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='8' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getAsus()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='9' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getHP()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='10' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function getMSI()
+    {
+        $query = "SELECT * FROM tbl_product WHERE brandId ='11' order by productId desc ";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function insertCompare($productid, $customer_id)
+    {
+        $customer_id = mysqli_real_escape_string($this->db->link, $customer_id);
+        $productid = mysqli_real_escape_string($this->db->link, $productid);
+        $query_compare = "SELECT * FROM tbl_compare WHERE productId = '$productid' AND customer_id='$customer_id' ";
+        $check_compare =  $this->db->select($query_compare);
+        if ($check_compare) {
+            $msg = "<span class='error'>Product Already Added to Compare</span>";
+            return $msg;
+        } else {
+
+            $query = "SELECT * FROM tbl_product WHERE productId = '$productid'";
+            $result = $this->db->select($query)->fetch_assoc();
+            $productName = $result["productName"];
+            $price = $result["price"];
+            $image = $result["image"];
+
+            $query_insert = "INSERT INTO tbl_compare(productId,customer_id,productName,price,image) VALUES('$productid','$customer_id','$productName','$price','$image')";
+            $insert_compare = $this->db->insert($query_insert);
+            if ($insert_compare) {
+                $alert = "<span class='success'>Added Compare Successfully</span>";
+                return $alert;
+            } else {
+                $alert = "<span class='error'>Added Compare Not Successfully</span>";
+                return $alert;
+            }
+        }
+    }
+    public function insertWishlist($productid, $customer_id)
+    {
+        $customer_id = mysqli_real_escape_string($this->db->link, $customer_id);
+        $productid = mysqli_real_escape_string($this->db->link, $productid);
+        $query_wishlist = "SELECT * FROM tbl_wishlist WHERE productId = '$productid' AND customer_id='$customer_id' ";
+        $check_wishlist =  $this->db->select($query_wishlist);
+        if ($check_wishlist) {
+            $msg = "<span class='error'>Product Already Added to Wishlist</span>";
+            return $msg;
+        } else {
+
+            $query = "SELECT * FROM tbl_product WHERE productId = '$productid'";
+            $result = $this->db->select($query)->fetch_assoc();
+            $productName = $result["productName"];
+            $price = $result["price"];
+            $image = $result["image"];
+
+            $query_insert = "INSERT INTO tbl_wishlist(productId,customer_id,productName,price,image) VALUES('$productid','$customer_id','$productName','$price','$image')";
+            $insert_wishlist = $this->db->insert($query_insert);
+            if ($insert_wishlist) {
+                $alert = "<span class='success'>Added Wishlist Successfully</span>";
+                return $alert;
+            } else {
+                $alert = "<span class='error'>Added Wishlist Not Successfully</span>";
+                return $alert;
+            }
+        }
+    }
+    public function insert_slider($data, $files)
+    {
+
+        $sliderName = mysqli_real_escape_string($this->db->link, $data['sliderName']);
+
+        $type = mysqli_real_escape_string($this->db->link, $data['type']);
+        //kiểm tra hình ảnh và lấy hình ảnh cho vào folder uploads
+        $permited = array('jpg', 'jpeg', 'png', 'gif');
+        $file_name = $_FILES['slider_image']['name'];
+        $file_size = $_FILES['slider_image']['size'];
+        $file_temp = $_FILES['slider_image']['tmp_name'];
+
+        $div = explode('.', $file_name);
+        $file_ext = strtolower(end($div));
+        $unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
+        $uploaded_image = "uploads/" . $unique_image;
+        if ($sliderName == "" || $type == "") {
+            $alert = "<span class='error'>Fields must be not empty</span>";
+            return $alert;
+        } else {
+            move_uploaded_file($file_temp, $uploaded_image);
+            $query = "INSERT INTO tbl_slider(sliderName, slider_image, type) VALUES('$sliderName','$unique_image','$type')";
+            $result = $this->db->insert($query);
+            if ($query) {
+                $alert = "<span class='success'>Insert Slider Successfully </span>";
+                return $alert;
+            } else {
+                $alert = "<span class='error'>Insert Slider Not Successfully </span>";
+                return $alert;
+            }
+        }
+    }
+    public function show_slider()
+    {
+        $query = "SELECT * FROM tbl_slider order by sliderId";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function slider_update($id)
+    {
+        $id = mysqli_real_escape_string($this->db->link, $id);
+        $query = "UPDATE tbl_slider SET type = '0' 
+         
+        WHERE sliderId ='$id' ";
+        $result = $this->db->update($query);
+        if ($result) {
+            $msg = "<span class='success'>Slider Updated Successfully</span>";
+            return $msg;
+        } else {
+            $msg = "<span class='error'>SliderUpdated Not  Successfully</span>";
+            return $msg;
+        }
+    }
+    public function slidered_update($id)
+    {
+        $id = mysqli_real_escape_string($this->db->link, $id);
+        $query = "UPDATE tbl_slider SET type = '1' 
+         
+        WHERE sliderId ='$id' ";
+        $result = $this->db->update($query);
+    }
+    public function get_slider()
+    {
+        $query = "SELECT * FROM tbl_slider WHERE type ='1'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function del_slider($id)
+    {
+
+        $query = "DELETE FROM tbl_slider WHERE sliderId='$id'";
+        $result = $this->db->delete($query);
         return $result;
     }
 }

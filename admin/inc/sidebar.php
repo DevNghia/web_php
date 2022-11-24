@@ -23,6 +23,12 @@
                         <li><a href="productlist.php">Liệt kê sản phẩm</a> </li>
                     </ul>
                 </li>
+                <li><a class="menuitem">Slider</a>
+                    <ul class="submenu">
+                        <li><a href="slideradd.php">Thêm slider</a> </li>
+                        <li><a href="sliderlist.php">Tất cả slider</a> </li>
+                    </ul>
+                </li>
                 <li><a class="menuitem">Update Pages</a>
                     <ul class="submenu">
                         <li><a>About Us</a></li>

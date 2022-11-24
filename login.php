@@ -2,6 +2,12 @@
 include 'inc/header.php';
 ?>
 <?php
+$login_check = Session::get('customer_login');
+if ($login_check) {
+	header('Location:order.php');
+}
+?>
+<?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 	// LẤY DỮ LIỆU TỪ PHƯƠNG THỨC Ở FORM POST
 	$insertCustomers = $cs->insert_customers($_POST);
